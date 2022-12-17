@@ -1,0 +1,4 @@
+2022-12-06 21:02:31,161 train file name = ('D:\\Users\\L\\Desktop\\SCI-main', 'train.py')
+2022-12-06 21:02:31,378 gpu device = 0
+2022-12-06 21:02:31,378 args = Namespace(batch_size=1, cuda=True, gpu='0', seed=2, epochs=1000, lr=0.0003, stage=3, save='EXP//Train-20221206-210231')
+2022-12-06 21:02:32,755 model size = 0.005877
