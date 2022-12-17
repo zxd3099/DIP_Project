@@ -28,11 +28,15 @@ def readDir(dir):
     return img_list
 
 
-def show(img_list):
+def show(img_list, col = 4):
+    n = len(img_list)
+    c = col
+    r = (n-1)//c+1
+
     plt.figure(figsize=(30, 20))
 
     for i in range(len(img_list)):
-        plt.subplot(5, 4, i + 1)
+        plt.subplot(r, c, i + 1)
         plt.imshow(img_list[i])
 
     plt.tight_layout()
