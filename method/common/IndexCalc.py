@@ -6,9 +6,9 @@
 @time: 2022-12-10 20:12
 """
 import math
-
 import numpy as np
-from skimage import measure
+from skimage.metrics import structural_similarity as SSIM
+from skimage.metrics import peak_signal_noise_ratio as PSNR
 
 
 """
@@ -23,18 +23,19 @@ def calc_psnr(image1, image2):
     :param image2: enhanced image
     :return:
     """
-    psnr = measure.compare_psnr(image1, image2, 255)
+    psnr = PSNR(image1, image2)
     return psnr
 
 
 def calc_ssim(image1, image2):
     """
     SSIM (Structural Similarity) is a measure of the similarity between two images.
+    The range of SSIM is from -1 to 1. The value of SSIM is equal to 1 when the two images are identical.
     :param image1: original image
     :param image2: enhanced image
     :return:
     """
-    ssim = measure.compare_ssim(image1, image2, 255)
+    ssim =  SSIM(image1, image2, multichannel=True)
     return ssim
 
 
@@ -51,7 +52,7 @@ def calc_eme(image, L = 5):
     :param L: block size
     :return:
     """
-    m, n = np.shape(image)
+    m, n, c = np.shape(image)
     number_m = math.floor(m / L)
     number_n = math.floor(n / L)
 
